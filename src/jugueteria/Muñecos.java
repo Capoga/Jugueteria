@@ -14,7 +14,7 @@ public class Muñecos extends Chip implements Cloneable {
     private boolean sed;
     private int hambriento;
     private int sediento;
-    private Bebes b=new Bebes();
+    private Bebes b = new Bebes();
 
     //Constructores
     public Muñecos() {
@@ -60,13 +60,13 @@ public class Muñecos extends Chip implements Cloneable {
             } else {
                 if (this.sediento >= 5) {
                     System.out.println("¡SEDIENTO!");
-                    if (b instanceof Bebes){
+                    if (b instanceof Bebes) {
                         b.setTriste();
                         b.llorar();
                     }
                 } else if (this.hambriento >= 3) {
                     System.out.println("¡HAMBRIENTO!");
-                    if (b instanceof Bebes){
+                    if (b instanceof Bebes) {
                         b.setTriste();
                         b.llorar();
                     }
@@ -84,16 +84,16 @@ public class Muñecos extends Chip implements Cloneable {
             this.sediento = sediento + 1;
             if (this.sediento >= 5) {
                 System.out.println("¡SEDIENTO!");
-                if (b instanceof Bebes){
-                        b.setTriste();
-                        b.llorar();
-                    }
+                if (b instanceof Bebes) {
+                    b.setTriste();
+                    b.llorar();
+                }
             } else if (this.hambriento >= 3) {
                 System.out.println("¡HAMBRIENTO!");
-                if (b instanceof Bebes){
-                        b.setTriste();
-                        b.llorar();
-                    }
+                if (b instanceof Bebes) {
+                    b.setTriste();
+                    b.llorar();
+                }
             }
         } else {
             System.out.println("El chip esta apagado.");
@@ -108,10 +108,10 @@ public class Muñecos extends Chip implements Cloneable {
             this.sediento = sediento + 1;
             if (this.sediento >= 5) {
                 System.out.println("¡SEDIENTO!");
-                if (b instanceof Bebes){
-                        b.setTriste();
-                        b.llorar();
-                    }
+                if (b instanceof Bebes) {
+                    b.setTriste();
+                    b.llorar();
+                }
             }
             this.dormir();
         } else {
@@ -128,10 +128,10 @@ public class Muñecos extends Chip implements Cloneable {
             this.hambriento = hambriento + 1;
             if (this.hambriento >= 3) {
                 System.out.println("¡HAMBRIENTO!");
-                if (b instanceof Bebes){
-                        b.setTriste();
-                        b.llorar();
-                    }
+                if (b instanceof Bebes) {
+                    b.setTriste();
+                    b.llorar();
+                }
             }
         } else {
             System.out.println("El chip esta apagado.");
