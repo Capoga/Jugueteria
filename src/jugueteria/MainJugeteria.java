@@ -27,7 +27,6 @@ public class MainJugeteria {
             System.out.println("6. Tipo de muñeco");
             System.out.println("7. Salir");
             try {
-
                 System.out.println("Escribe una de las opciones");
                 opcion = sn.nextInt();
 
@@ -62,5 +61,4 @@ public class MainJugeteria {
             }
         }
     }
-
 }

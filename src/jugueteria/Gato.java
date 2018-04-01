@@ -15,7 +15,7 @@ public class Gato extends Animales implements Cloneable {
         super(ti, oj, bo, su, e);
     }
 
-    //Metodos set y get
+    //Acciones
     public String maullar() {
         return "MIAAUU";
     }

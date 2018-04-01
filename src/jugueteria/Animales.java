@@ -21,7 +21,7 @@ public class Animales extends Muñecos implements Cloneable {
 
     //Metodos set y get
     public void setTipo(boolean x) {
-        this.tipo=x;
+        this.tipo = x;
     }
 
     public boolean getTipo() {
@@ -29,7 +29,7 @@ public class Animales extends Muñecos implements Cloneable {
     }
 
     public String soyUn() {
-        return "Animal";
+        return "Animal ";
     }
 
     //Metodo toString

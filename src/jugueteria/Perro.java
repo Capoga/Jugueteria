@@ -15,7 +15,7 @@ public class Perro extends Animales implements Cloneable {
         super(ti, oj, bo, su, e);
     }
 
-    //Metodos set y get
+    //Acciones
     public String ladrar() {
         return "GUAU";
     }
