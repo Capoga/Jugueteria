@@ -53,6 +53,7 @@ public class Muñecos extends Chip implements Cloneable {
 
     public void dormir() {
         if (super.getEncendido() != false) {
+            this.sueño = true;
             this.ojosAbiertos = false;
             this.hambriento = hambriento + 1;
             this.sediento = sediento + 1;
@@ -65,7 +66,8 @@ public class Muñecos extends Chip implements Cloneable {
                     b.setTriste();
                     b.llorar();
                 }*/
-            } else if (this.hambriento >= 3) {
+            }
+            if (this.hambriento >= 3) {
                 System.out.println("¡HAMBRIENTO!");
                 /*if (b instanceof Bebes) {
                     b.setTriste();
@@ -81,6 +83,7 @@ public class Muñecos extends Chip implements Cloneable {
 
     public void despertar() {
         if (super.getEncendido() != false) {
+            this.sueño = false;
             this.setOjos();
             this.hambriento = hambriento + 1;
             this.sediento = sediento + 1;
@@ -93,7 +96,8 @@ public class Muñecos extends Chip implements Cloneable {
                     b.setTriste();
                     b.llorar();
                 }*/
-            } else if (this.hambriento >= 3) {
+            }
+            if (this.hambriento >= 3) {
                 System.out.println("¡HAMBRIENTO!");
                 /*if (b instanceof Bebes) {
                     b.setTriste();
@@ -109,7 +113,9 @@ public class Muñecos extends Chip implements Cloneable {
 
     public void comer() {
         if (super.getEncendido() != false) {
-            this.despertar();
+            if (this.sueño != false) {
+                this.despertar();
+            }
             this.setBoca();
             this.hambriento = 0;
             this.sediento = sediento + 1;
@@ -134,7 +140,9 @@ public class Muñecos extends Chip implements Cloneable {
 
     public void beber() {
         if (super.getEncendido() != false) {
-            this.despertar();
+            if (this.sueño != false) {
+                this.despertar();
+            }
             this.bocaAbierta = true;
             this.sediento = 0;
             this.hambriento = hambriento + 1;

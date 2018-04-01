@@ -26,7 +26,6 @@ public class MainJugeteria {
             System.out.println("5. Beber");
             System.out.println("6. Tipo de muñeco");
             System.out.println("7. Salir");
-            System.out.print("\f");
             try {
 
                 System.out.println("Escribe una de las opciones");
