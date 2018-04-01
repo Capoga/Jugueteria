@@ -36,16 +36,16 @@ public class MainJugeteria {
                         be.setEncendido();
                         break;
                     case 2:
-                        be.dormir();
+                        System.out.println(be.dormir());
                         break;
                     case 3:
-                        be.despertar();
+                        System.out.println(be.despertar());
                         break;
                     case 4:
-                        be.comer();
+                        System.out.println(be.comer());
                         break;
                     case 5:
-                        be.beber();
+                        System.out.println(be.beber());
                         break;
                     case 6:
                         System.out.println(be.soyUn());

@@ -10,11 +10,8 @@ public class Muñecos extends Chip implements Cloneable {
     private boolean ojosAbiertos;
     private boolean bocaAbierta;
     private boolean sueño;
-    private boolean hambre;
-    private boolean sed;
     private int hambriento;
     private int sediento;
-    //private Bebes b = new Bebes();
 
     //Constructores
     public Muñecos() {
@@ -22,19 +19,15 @@ public class Muñecos extends Chip implements Cloneable {
         this.ojosAbiertos = false;
         this.bocaAbierta = false;
         this.sueño = true;
-        this.hambre = false;
-        this.sed = false;
         this.hambriento = 0;
         this.sediento = 0;
     }
 
-    public Muñecos(boolean oj, boolean bo, boolean su, boolean sih, boolean sis, boolean e) {
+    public Muñecos(boolean oj, boolean bo, boolean su, boolean e) {
         super(e);
         this.ojosAbiertos = oj;
         this.bocaAbierta = bo;
         this.sueño = su;
-        this.hambre = sih;
-        this.sed = sis;
         this.hambriento = 0;
         this.sediento = 0;
     }
@@ -43,156 +36,116 @@ public class Muñecos extends Chip implements Cloneable {
     public void apagarChipMuñeco() {
         super.apagarChip();
         this.bocaAbierta = false;
-        this.hambre = false;
         this.ojosAbiertos = false;
-        this.sed = false;
         this.sueño = false;
         this.hambriento = 0;
         this.sediento = 0;
     }
 
-    public void dormir() {
-        if (super.getEncendido() != false) {
-            this.sueño = true;
-            this.ojosAbiertos = false;
-            this.hambriento = hambriento + 1;
-            this.sediento = sediento + 1;
-            System.out.println("");
-            System.out.println("Durmiendo...");
-            System.out.println("");
+    public String dormir() {
+        String aux1 = "";
+        String aux2 = "";
+        String aux3 = "";
+        if (super.getEncendido() == true) {
+            if (this.hambriento < 3 && this.sediento < 5) {
+                this.sueño = true;
+                this.ojosAbiertos = false;
+                this.hambriento = hambriento + 1;
+                this.sediento = sediento + 1;
+                aux1 = "Durmiendo... ";
+            }
             if (this.sediento >= 5) {
-                System.out.println("¡SEDIENTO!");
-                /*if (b instanceof Bebes) {
-                    b.setTriste();
-                    b.llorar();
-                }*/
+                aux2 = "¡SEDIENTO! ";
             }
             if (this.hambriento >= 3) {
-                System.out.println("¡HAMBRIENTO!");
-                /*if (b instanceof Bebes) {
-                    b.setTriste();
-                    b.llorar();
-                }*/
+                aux3 = "¡HAMBRIENTO! ";
             }
         } else {
-            System.out.println("");
-            System.out.println("El chip esta apagado.");
-            System.out.println("");
+            aux1 = "El chip esta apagado. ";
         }
+        return aux1 + aux2 + aux3;
     }
 
-    public void despertar() {
-        if (super.getEncendido() != false) {
-            this.sueño = false;
-            this.setOjos();
-            this.hambriento = hambriento + 1;
-            this.sediento = sediento + 1;
-            System.out.println("");
-            System.out.println("¡¡¡Despierto!!!");
-            System.out.println("");
-            if (this.sediento >= 5) {
-                System.out.println("¡SEDIENTO!");
-                /*if (b instanceof Bebes) {
-                    b.setTriste();
-                    b.llorar();
-                }*/
-            }
-            if (this.hambriento >= 3) {
-                System.out.println("¡HAMBRIENTO!");
-                /*if (b instanceof Bebes) {
-                    b.setTriste();
-                    b.llorar();
-                }*/
+    public String despertar() {
+        String aux1 = "";
+        String aux2 = "";
+        String aux3 = "";
+        if (super.getEncendido() == true) {
+            if (this.sueño == true) {
+                this.sueño = false;
+                this.setOjos(true);
+                this.hambriento = hambriento + 1;
+                this.sediento = sediento + 1;
+                aux1 = "¡¡¡Despierto!!! ";
+                if (this.sediento >= 5) {
+                    aux2 = "¡SEDIENTO! ";
+                }
+                if (this.hambriento >= 3) {
+                    aux3 = "¡HAMBRIENTO! ";
+                }
+            } else {
+                aux1 = "Ya esta despierto. ";
             }
         } else {
-            System.out.println("");
-            System.out.println("El chip esta apagado.");
-            System.out.println("");
+            aux1 = "El chip esta apagado. ";
         }
+        return aux1 + aux2 + aux3;
     }
 
-    public void comer() {
-        if (super.getEncendido() != false) {
-            if (this.sueño != false) {
+    public String comer() {
+        String aux1 = "";
+        String aux2 = "";
+        if (super.getEncendido() == true) {
+            if (this.sueño == true) {
                 this.despertar();
             }
-            this.setBoca();
+            this.setBoca(true);
             this.hambriento = 0;
             this.sediento = sediento + 1;
-            System.out.println("");
-            System.out.println("Comiendo...");
-            System.out.println("");
+            aux1 = "Comiendo... ";
             if (this.sediento >= 5) {
-                System.out.println("¡SEDIENTO!");
-                /*if (b instanceof Bebes) {
-                    b.setTriste();
-                    b.llorar();
-                }*/
+                aux2 = "¡SEDIENTO! ";
             }
             this.dormir();
         } else {
-            System.out.println("");
-            System.out.println("El chip esta apagado.");
-            System.out.println("");
+            aux1 = "El chip esta apagado. ";
         }
         this.bocaAbierta = false;
+        return aux1 + aux2;
     }
 
-    public void beber() {
-        if (super.getEncendido() != false) {
-            if (this.sueño != false) {
+    public String beber() {
+        String aux1 = "";
+        String aux2 = "";
+        if (super.getEncendido() == true) {
+            if (this.sueño == true) {
                 this.despertar();
             }
-            this.bocaAbierta = true;
+            this.setBoca(true);
             this.sediento = 0;
             this.hambriento = hambriento + 1;
-            System.out.println("");
-            System.out.println("Bebiendo...");
-            System.out.println("");
+            aux1 = "Bebiendo... ";
             if (this.hambriento >= 3) {
-                System.out.println("¡HAMBRIENTO!");
-                /*if (b instanceof Bebes) {
-                    b.setTriste();
-                    b.llorar();
-                }*/
+                aux2 = "¡HAMBRIENTO! ";
             }
         } else {
-            System.out.println("");
-            System.out.println("El chip esta apagado.");
-            System.out.println("");
+            aux1 = "El chip esta apagado. ";
         }
         this.bocaAbierta = false;
+        return aux1 + aux2;
     }
 
     //Metodos set y get
-    public void setOjos() {
-        if (this.ojosAbiertos != true) {
-            this.ojosAbiertos = true;
-        }
+    public void setOjos(boolean x) {
+        this.ojosAbiertos = x;
     }
 
-    public void setBoca() {
-        if (this.bocaAbierta != true) {
-            this.bocaAbierta = true;
-        }
+    public void setBoca(boolean x) {
+        this.bocaAbierta = x;
     }
 
-    public void setSueño() {
-        if (this.sueño != true) {
-            this.sueño = true;
-        }
-    }
-
-    public void sethambre() {
-        if (this.hambre != true) {
-            this.hambre = true;
-        }
-    }
-
-    public void setsed() {
-        if (this.sed != true) {
-            this.sed = true;
-        }
+    public void setSueño(boolean x) {
+        this.sueño = x;
     }
 
     public boolean getOjosAbiertos() {
@@ -207,20 +160,11 @@ public class Muñecos extends Chip implements Cloneable {
         return sueño;
     }
 
-    public boolean gethambre() {
-        return hambre;
-    }
-
-    public boolean getsed() {
-        return sed;
-    }
-
     //Metodo toString
     @Override
     public String toString() {
         return super.toString() + ". Es un muñeco" + ". Tiene los ojos " + ojosAbiertos
-                + ", la boca " + bocaAbierta + ", el sueño " + sueño
-                + ", el hambre " + hambre + ", la sed" + sed;
+                + ", la boca " + bocaAbierta + ", el sueño " + sueño;
     }
 
     @Override

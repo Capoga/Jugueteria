@@ -11,8 +11,8 @@ public class Gato extends Animales implements Cloneable {
         super();
     }
 
-    public Gato(boolean ti, boolean oj, boolean bo, boolean su, boolean sih, boolean sis, boolean e) {
-        super(ti, oj, bo, su, sih, sis, e);
+    public Gato(boolean ti, boolean oj, boolean bo, boolean su, boolean e) {
+        super(ti, oj, bo, su, e);
     }
 
     //Metodos set y get

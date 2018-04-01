@@ -29,7 +29,11 @@ public class Chip implements Cloneable {
         if (this.encendido != true) {
             this.encendido = true;
             System.out.println("");
-            System.out.println("Chip encendido...");
+            System.out.println("Chip encendido... ");
+            System.out.println("");
+        } else {
+            System.out.println("");
+            System.out.println("El chip ya esta encendido. ");
             System.out.println("");
         }
     }

@@ -14,16 +14,14 @@ public class Animales extends Muñecos implements Cloneable {
         this.tipo = true;
     }
 
-    public Animales(boolean ti, boolean oj, boolean bo, boolean su, boolean sih, boolean sis, boolean e) {
-        super(oj, bo, su, sih, sis, e);
+    public Animales(boolean ti, boolean oj, boolean bo, boolean su, boolean e) {
+        super(oj, bo, su, e);
         this.tipo = ti;
     }
 
     //Metodos set y get
-    public void setTipo() {
-        if (this.tipo != true) {
-            this.tipo = true;
-        }
+    public void setTipo(boolean x) {
+        this.tipo=x;
     }
 
     public boolean getTipo() {
