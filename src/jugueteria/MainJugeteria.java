@@ -9,8 +9,9 @@ import java.util.Scanner;
  */
 public class MainJugeteria {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         Bebes be = new Bebes();
+        Bebes be1= (Bebes) be.clone();
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion;
@@ -25,7 +26,8 @@ public class MainJugeteria {
             System.out.println("4. Comer");
             System.out.println("5. Beber");
             System.out.println("6. Tipo de muñeco");
-            System.out.println("7. Salir");
+            System.out.println("7. Apagar chip");
+            System.out.println("8. Salir");
             try {
                 System.out.println("Escribe una de las opciones");
                 opcion = sn.nextInt();
@@ -50,6 +52,9 @@ public class MainJugeteria {
                         System.out.println(be.soyUn());
                         break;
                     case 7:
+                        System.out.println(be.apagarChipMuñeco());
+                        break;
+                    case 8:
                         salir = true;
                         break;
                     default:

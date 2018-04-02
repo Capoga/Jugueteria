@@ -29,7 +29,13 @@ public class Animales extends Muñecos implements Cloneable {
     }
 
     public String soyUn() {
-        return "Animal ";
+        String aux;
+        if (!tipo) {
+            aux = "salvaje.";
+        } else {
+            aux = "doméstico.";
+        }
+        return "Animal " + aux;
     }
 
     //Metodo toString

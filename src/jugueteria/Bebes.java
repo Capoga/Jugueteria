@@ -70,6 +70,9 @@ public class Bebes extends Muñecos implements Cloneable {
             aux1 = "¡¡¡Despierto!!! ¡SEDIENTO! ¡HAMBRIENTO! ";
             aux2 = this.llorar();
         }
+        if (super.despertar().equals("Ya esta despierto. ")) {
+            aux1 = "Ya esta despierto. ";
+        }
         return aux1 + aux2;
     }
 
@@ -101,8 +104,8 @@ public class Bebes extends Muñecos implements Cloneable {
         if (super.beber().equals("El chip esta apagado. ")) {
             aux1 = "El chip esta apagado. ";
         }
-        if (super.beber().equals("bebiendo... ")) {
-            aux1 = "bebiendo... ";
+        if (super.beber().equals("Bebiendo... ")) {
+            aux1 = "Bebiendo... ";
         }
         if (super.beber().equals("¡HAMBRIENTO! ")) {
             aux1 = "¡HAMBRIENTO! ";
@@ -117,11 +120,13 @@ public class Bebes extends Muñecos implements Cloneable {
 
     public String llorar() {
         this.setTriste(true);
+        super.setBoca(true);
         return "LLANTO ";
     }
 
     public String reir() {
         this.setContento(true);
+        super.setBoca(true);
         return "RISA ";
 
     }

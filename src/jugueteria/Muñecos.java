@@ -33,13 +33,14 @@ public class Muñecos extends Chip implements Cloneable {
     }
 
     //Acciones
-    public void apagarChipMuñeco() {
+    public String apagarChipMuñeco() {
         super.apagarChip();
         this.bocaAbierta = false;
         this.ojosAbiertos = false;
         this.sueño = false;
         this.hambriento = 0;
         this.sediento = 0;
+        return "Chip apagado.";
     }
 
     public String dormir() {
@@ -50,8 +51,8 @@ public class Muñecos extends Chip implements Cloneable {
             if (this.hambriento < 3 && this.sediento < 5) {
                 this.sueño = true;
                 this.ojosAbiertos = false;
-                this.hambriento = hambriento + 1;
-                this.sediento = sediento + 1;
+                this.hambriento++; //= hambriento + 1;
+                this.sediento++; //= sediento + 1;
                 aux1 = "Durmiendo... ";
             }
             if (this.sediento >= 5) {
@@ -67,15 +68,15 @@ public class Muñecos extends Chip implements Cloneable {
     }
 
     public String despertar() {
-        String aux1 = "";
+        String aux1;
         String aux2 = "";
         String aux3 = "";
         if (super.getEncendido() == true) {
             if (this.sueño == true) {
                 this.sueño = false;
                 this.setOjos(true);
-                this.hambriento = hambriento + 1;
-                this.sediento = sediento + 1;
+                this.hambriento++; //= hambriento + 1;
+                this.sediento++; //= sediento + 1;
                 aux1 = "¡¡¡Despierto!!! ";
                 if (this.sediento >= 5) {
                     aux2 = "¡SEDIENTO! ";
@@ -93,7 +94,7 @@ public class Muñecos extends Chip implements Cloneable {
     }
 
     public String comer() {
-        String aux1 = "";
+        String aux1;
         String aux2 = "";
         if (super.getEncendido() == true) {
             if (this.sueño == true) {
@@ -101,12 +102,12 @@ public class Muñecos extends Chip implements Cloneable {
             }
             this.setBoca(true);
             this.hambriento = 0;
-            this.sediento = sediento + 1;
+            //this.sediento = sediento + 1;
             aux1 = "Comiendo... ";
-            if (this.sediento >= 5) {
+            if (this.sediento >= 5) {//En algun momento suma 5 a sediento y no se cuando
                 aux2 = "¡SEDIENTO! ";
             }
-            this.dormir();
+            //this.dormir();
         } else {
             aux1 = "El chip esta apagado. ";
         }
@@ -115,7 +116,7 @@ public class Muñecos extends Chip implements Cloneable {
     }
 
     public String beber() {
-        String aux1 = "";
+        String aux1;
         String aux2 = "";
         if (super.getEncendido() == true) {
             if (this.sueño == true) {
@@ -123,7 +124,7 @@ public class Muñecos extends Chip implements Cloneable {
             }
             this.setBoca(true);
             this.sediento = 0;
-            this.hambriento = hambriento + 1;
+            //this.hambriento = hambriento + 1;
             aux1 = "Bebiendo... ";
             if (this.hambriento >= 3) {
                 aux2 = "¡HAMBRIENTO! ";
