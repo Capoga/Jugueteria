@@ -43,7 +43,7 @@ public class Muñecos extends Chip implements Cloneable {
         return "Chip apagado.";
     }
 
-    public String dormir() {
+    public String dormir(Muñecos m) {
         String aux1 = "";
         String aux2 = "";
         String aux3 = "";
@@ -51,15 +51,21 @@ public class Muñecos extends Chip implements Cloneable {
             if (this.hambriento < 3 && this.sediento < 5) {
                 this.sueño = true;
                 this.ojosAbiertos = false;
-                this.hambriento++; //= hambriento + 1;
-                this.sediento++; //= sediento + 1;
+                this.hambriento++;
+                this.sediento++;
                 aux1 = "Durmiendo... ";
             }
             if (this.sediento >= 5) {
                 aux2 = "¡SEDIENTO! ";
+                if (m instanceof Bebes) {
+                    aux2 = aux2 + ((Bebes) m).llorar();
+                }
             }
             if (this.hambriento >= 3) {
                 aux3 = "¡HAMBRIENTO! ";
+                if (m instanceof Bebes) {
+                    aux3 = aux3 + ((Bebes) m).llorar();
+                }
             }
         } else {
             aux1 = "El chip esta apagado. ";
@@ -67,7 +73,7 @@ public class Muñecos extends Chip implements Cloneable {
         return aux1 + aux2 + aux3;
     }
 
-    public String despertar() {
+    public String despertar(Muñecos m) {
         String aux1;
         String aux2 = "";
         String aux3 = "";
@@ -75,14 +81,20 @@ public class Muñecos extends Chip implements Cloneable {
             if (this.sueño == true) {
                 this.sueño = false;
                 this.setOjos(true);
-                this.hambriento++; //= hambriento + 1;
-                this.sediento++; //= sediento + 1;
+                this.hambriento++;
+                this.sediento++;
                 aux1 = "¡¡¡Despierto!!! ";
                 if (this.sediento >= 5) {
                     aux2 = "¡SEDIENTO! ";
+                    if (m instanceof Bebes) {
+                        aux2 = aux2 + ((Bebes) m).llorar();
+                    }
                 }
                 if (this.hambriento >= 3) {
                     aux3 = "¡HAMBRIENTO! ";
+                    if (m instanceof Bebes) {
+                        aux3 = aux3 + ((Bebes) m).llorar();
+                    }
                 }
             } else {
                 aux1 = "Ya esta despierto. ";
@@ -93,41 +105,48 @@ public class Muñecos extends Chip implements Cloneable {
         return aux1 + aux2 + aux3;
     }
 
-    public String comer() {
+    public String comer(Muñecos m) {
         String aux1;
         String aux2 = "";
+        String aux3 = "";
         if (super.getEncendido() == true) {
             if (this.sueño == true) {
-                this.despertar();
+                this.despertar(m);
             }
             this.setBoca(true);
             this.hambriento = 0;
-            //this.sediento = sediento + 1;
+            this.sediento++;
             aux1 = "Comiendo... ";
-            if (this.sediento >= 5) {//En algun momento suma 5 a sediento y no se cuando
+            if (this.sediento >= 5) {
                 aux2 = "¡SEDIENTO! ";
+                if (m instanceof Bebes) {
+                    aux2 = aux2 + ((Bebes) m).llorar();
+                }
             }
-            //this.dormir();
+            aux3 = this.dormir(m);
         } else {
             aux1 = "El chip esta apagado. ";
         }
         this.bocaAbierta = false;
-        return aux1 + aux2;
+        return aux1 + aux2 + aux3;
     }
 
-    public String beber() {
+    public String beber(Muñecos m) {
         String aux1;
         String aux2 = "";
         if (super.getEncendido() == true) {
             if (this.sueño == true) {
-                this.despertar();
+                this.despertar(m);
             }
             this.setBoca(true);
             this.sediento = 0;
-            //this.hambriento = hambriento + 1;
+            this.hambriento++;
             aux1 = "Bebiendo... ";
             if (this.hambriento >= 3) {
                 aux2 = "¡HAMBRIENTO! ";
+                if (m instanceof Bebes) {
+                    aux2 = aux2 + ((Bebes) m).llorar();
+                }
             }
         } else {
             aux1 = "El chip esta apagado. ";
@@ -136,7 +155,45 @@ public class Muñecos extends Chip implements Cloneable {
         return aux1 + aux2;
     }
 
-    //Metodos set y get
+    public String emiteSonido(Muñecos m) {
+        String aux1 = "";
+        String aux2 = "";
+        String aux3 = "";
+        if (super.getEncendido() == true) {
+            if (this.hambriento < 3 && this.sediento < 5) {
+                if (!this.sueño) {
+                    if (m instanceof Bebes) {
+                        aux1 = ((Bebes) m).reir();
+                    }
+                    if (m instanceof Gato) {
+                        aux1 = ((Gato) m).maullar();
+                    }
+                    if (m instanceof Perro) {
+                        aux1 = ((Perro) m).ladrar();
+                    }
+                } else {
+                    aux1 = "Ronquido";
+                }
+            }
+            if (this.sediento >= 5) {
+                aux2 = "¡SEDIENTO! ";
+                if (m instanceof Bebes) {
+                    aux2 = aux2 + ((Bebes) m).llorar();
+                }
+            }
+            if (this.hambriento >= 3) {
+                aux3 = "¡HAMBRIENTO! ";
+                if (m instanceof Bebes) {
+                    aux3 = aux3 + ((Bebes) m).llorar();
+                }
+            }
+        } else {
+            aux1 = "El chip esta apagado. ";
+        }
+        return aux1 + aux2 + aux3;
+    }
+
+//Metodos set y get
     public void setOjos(boolean x) {
         this.ojosAbiertos = x;
     }
@@ -161,6 +218,18 @@ public class Muñecos extends Chip implements Cloneable {
         return sueño;
     }
 
+    public int getHambriento() {
+        return this.hambriento;
+    }
+
+    public int getSediento() {
+        return this.sediento;
+    }
+
+    public String soyUn() {
+        return "Muñeco ";
+    }
+
     //Metodo toString
     @Override
     public String toString() {
@@ -172,9 +241,7 @@ public class Muñecos extends Chip implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Muñecos) super.clone();
-            //((Muñecos) obj).b = (Bebes) this.b.clone();
-            //((Muñecos) obj).a = (Animales) this.a.clone();
+            obj = super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

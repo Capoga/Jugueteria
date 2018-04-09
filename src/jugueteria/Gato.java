@@ -36,7 +36,7 @@ public class Gato extends Animales implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Gato) super.clone();
+            obj = super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

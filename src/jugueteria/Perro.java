@@ -36,7 +36,7 @@ public class Perro extends Animales implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Perro) super.clone();
+            obj = super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

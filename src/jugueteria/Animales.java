@@ -28,6 +28,7 @@ public class Animales extends Muñecos implements Cloneable {
         return this.tipo;
     }
 
+    @Override
     public String soyUn() {
         String aux;
         if (!tipo) {
@@ -49,7 +50,7 @@ public class Animales extends Muñecos implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Animales) super.clone();
+            obj = super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;
