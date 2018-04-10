@@ -57,7 +57,7 @@ public class Chip implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = super.clone();
+            obj = (Chip)super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

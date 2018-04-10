@@ -79,7 +79,7 @@ public class Bebes extends Muñecos implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = super.clone();
+            obj = (Bebes)super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

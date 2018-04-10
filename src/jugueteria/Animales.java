@@ -50,7 +50,7 @@ public class Animales extends Muñecos implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = super.clone();
+            obj = (Animales)super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;
