@@ -11,7 +11,7 @@ public class Chip implements Cloneable {
 
     //Constructores
     public Chip() {
-        this.setId(id+1);
+        this.setId(id + 1);
         this.encendido = false;
     }
 
