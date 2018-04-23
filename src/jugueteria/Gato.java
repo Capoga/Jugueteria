@@ -11,8 +11,8 @@ public class Gato extends Animales implements Cloneable {
         super();
     }
 
-    public Gato(boolean ti, boolean oj, boolean bo, boolean su, boolean e) {
-        super(ti, oj, bo, su, e);
+    public Gato(boolean ti, boolean oj, boolean bo, boolean su, String i) {
+        super(ti, oj, bo, su, i);
     }
 
     //Acciones
@@ -36,7 +36,7 @@ public class Gato extends Animales implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Gato)super.clone();
+            obj = (Gato) super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

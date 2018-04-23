@@ -4,7 +4,7 @@ package jugueteria;
  *
  * @author carme
  */
-public class Muñecos extends Chip implements Cloneable {
+public class Muñecos /*extends Chip*/ implements Cloneable {
 
     //Declaración de variables
     private boolean ojosAbiertos;
@@ -12,10 +12,12 @@ public class Muñecos extends Chip implements Cloneable {
     private boolean sueño;
     private int hambriento;
     private int sediento;
+    private Chip c;
 
     //Constructores
     public Muñecos() {
-        super();
+        //super();
+        c = new Chip();
         this.ojosAbiertos = false;
         this.bocaAbierta = false;
         this.sueño = true;
@@ -23,8 +25,9 @@ public class Muñecos extends Chip implements Cloneable {
         this.sediento = 0;
     }
 
-    public Muñecos(boolean oj, boolean bo, boolean su, boolean e) {
-        super(e);
+    public Muñecos(boolean oj, boolean bo, boolean su, String i) {
+        //super(e);
+        c = new Chip(i, false);
         this.ojosAbiertos = oj;
         this.bocaAbierta = bo;
         this.sueño = su;
@@ -34,7 +37,7 @@ public class Muñecos extends Chip implements Cloneable {
 
     //Acciones
     public String apagarChipMuñeco() {
-        super.apagarChip();
+        //super.apagarChip();
         this.bocaAbierta = false;
         this.ojosAbiertos = false;
         this.sueño = false;
@@ -47,7 +50,7 @@ public class Muñecos extends Chip implements Cloneable {
         String aux1 = "";
         String aux2 = "";
         String aux3 = "";
-        if (super.getEncendido() == true) {
+        if (c.getEncendido() == true) {
             if (this.hambriento < 3 && this.sediento < 5) {
                 this.sueño = true;
                 this.ojosAbiertos = false;
@@ -77,7 +80,7 @@ public class Muñecos extends Chip implements Cloneable {
         String aux1;
         String aux2 = "";
         String aux3 = "";
-        if (super.getEncendido() == true) {
+        if (c.getEncendido() == true) {
             if (this.sueño == true) {
                 this.sueño = false;
                 this.setOjos(true);
@@ -109,7 +112,7 @@ public class Muñecos extends Chip implements Cloneable {
         String aux1;
         String aux2 = "";
         String aux3 = "";
-        if (super.getEncendido() == true) {
+        if (c.getEncendido() == true) {
             if (this.sueño == true) {
                 this.despertar(m);
             }
@@ -134,7 +137,7 @@ public class Muñecos extends Chip implements Cloneable {
     public String beber(Muñecos m) {
         String aux1;
         String aux2 = "";
-        if (super.getEncendido() == true) {
+        if (c.getEncendido() == true) {
             if (this.sueño == true) {
                 this.despertar(m);
             }
@@ -159,7 +162,7 @@ public class Muñecos extends Chip implements Cloneable {
         String aux1 = "";
         String aux2 = "";
         String aux3 = "";
-        if (super.getEncendido() == true) {
+        if (c.getEncendido() == true) {
             if (this.hambriento < 3 && this.sediento < 5) {
                 if (!this.sueño) {
                     if (m instanceof Bebes) {
@@ -206,6 +209,18 @@ public class Muñecos extends Chip implements Cloneable {
         this.sueño = x;
     }
 
+    public void setEncendido() {
+        c.setEncendido();
+    }
+
+    public String getid() {
+        return c.getid();
+    }
+
+    public boolean getEncendido() {
+        return c.getEncendido();
+    }
+
     public boolean getOjosAbiertos() {
         return ojosAbiertos;
     }
@@ -233,7 +248,7 @@ public class Muñecos extends Chip implements Cloneable {
     //Metodo toString
     @Override
     public String toString() {
-        return super.toString() + ". Es un muñeco" + ". Tiene los ojos " + ojosAbiertos
+        return c.toString() + ". Es un muñeco" + ". Tiene los ojos " + ojosAbiertos
                 + ", la boca " + bocaAbierta + ", el sueño " + sueño;
     }
 
@@ -241,7 +256,8 @@ public class Muñecos extends Chip implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Muñecos)super.clone();
+            obj = (Muñecos) super.clone();
+            ((Muñecos) obj).c = (Chip) this.c.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

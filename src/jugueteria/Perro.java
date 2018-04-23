@@ -11,8 +11,8 @@ public class Perro extends Animales implements Cloneable {
         super();
     }
 
-    public Perro(boolean ti, boolean oj, boolean bo, boolean su, boolean e) {
-        super(ti, oj, bo, su, e);
+    public Perro(boolean ti, boolean oj, boolean bo, boolean su, String i) {
+        super(ti, oj, bo, su, i);
     }
 
     //Acciones
@@ -36,7 +36,7 @@ public class Perro extends Animales implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Perro)super.clone();
+            obj = (Perro) super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

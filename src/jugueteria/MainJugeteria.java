@@ -18,10 +18,10 @@ public class MainJugeteria {
         int opcion;
 
         Muñecos aux = be;//Para agilizar el cambio de objetos en el menú
-        
+
         while (!salir) {
             System.out.println("------------------------");
-            System.out.println("------ Jugueteria ------");
+            System.out.println("------ Jugueteria S.L. ------");
             System.out.println("------------------------");
             System.out.println("1. Encender chip");
             System.out.println("2. Dormir");
@@ -32,6 +32,7 @@ public class MainJugeteria {
             System.out.println("7. Tipo de muñeco");
             System.out.println("8. Apagar chip");
             System.out.println("9. Salir");
+
             try {
                 System.out.println("Escribe una de las opciones");
                 opcion = sn.nextInt();
@@ -49,14 +50,14 @@ public class MainJugeteria {
                         break;
                     case 3:
                         System.out.println(aux.despertar(aux));
-                         System.out.println("----------------------------------");
+                        System.out.println("----------------------------------");
                         System.out.println("Hambriento: " + aux.getHambriento());
                         System.out.println("Sediento: " + aux.getSediento());
                         System.out.println("___________________________________");
                         break;
                     case 4:
                         System.out.println(aux.comer(aux));
-                         System.out.println("----------------------------------");
+                        System.out.println("----------------------------------");
                         System.out.println("Hambriento: " + aux.getHambriento());
                         System.out.println("Sediento: " + aux.getSediento());
                         System.out.println("___________________________________");

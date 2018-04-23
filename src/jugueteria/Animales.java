@@ -14,8 +14,8 @@ public class Animales extends Muñecos implements Cloneable {
         this.tipo = true;
     }
 
-    public Animales(boolean ti, boolean oj, boolean bo, boolean su, boolean e) {
-        super(oj, bo, su, e);
+    public Animales(boolean ti, boolean oj, boolean bo, boolean su, String i) {
+        super(oj, bo, su, i);
         this.tipo = ti;
     }
 
@@ -50,7 +50,7 @@ public class Animales extends Muñecos implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Animales)super.clone();
+            obj = (Animales) super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

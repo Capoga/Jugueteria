@@ -16,8 +16,8 @@ public class Bebes extends Muñecos implements Cloneable {
         this.contento = true;
     }
 
-    public Bebes(boolean ll, boolean re, boolean oj, boolean bo, boolean su, boolean e) {
-        super(oj, bo, su, e);
+    public Bebes(boolean ll, boolean re, boolean oj, boolean bo, boolean su, String i) {
+        super(oj, bo, su, i);
         this.triste = ll;
         this.contento = re;
     }
@@ -79,7 +79,7 @@ public class Bebes extends Muñecos implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Bebes)super.clone();
+            obj = (Bebes) super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;

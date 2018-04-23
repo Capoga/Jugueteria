@@ -6,17 +6,17 @@ package jugueteria;
  */
 public class Chip implements Cloneable {
 
-    private int id;
+    private String id;
     private boolean encendido;
 
     //Constructores
     public Chip() {
-        this.id = id + 1;
+        this.setId(id+1);
         this.encendido = false;
     }
 
-    public Chip(boolean e) {
-        this.id = id + 1;
+    public Chip(String i, boolean e) {
+        this.setId(i);
         this.encendido = e;
     }
 
@@ -25,6 +25,15 @@ public class Chip implements Cloneable {
     }
 
     //Metodos set y get
+    private void setId(String i) {
+        //matches comprueba que el string i contiene los caracteres entre corchetes
+        if (i.matches("[a-zA-Z0-9]+")) {
+            this.id = i;
+        } else {
+            System.out.println("Solo caracteres Alfanumericos. ");
+        }
+    }
+
     public void setEncendido() {
         if (this.encendido != true) {
             this.encendido = true;
@@ -38,7 +47,7 @@ public class Chip implements Cloneable {
         }
     }
 
-    public int getid() {
+    public String getid() {
         return this.id;
     }
 
@@ -57,10 +66,13 @@ public class Chip implements Cloneable {
     public Object clone() throws CloneNotSupportedException {
         Object obj = null;
         try {
-            obj = (Chip)super.clone();
+            obj = (Chip) super.clone();
         } catch (CloneNotSupportedException ex) {
         }
         return obj;
     }
 
 }
+//Crear el chip con clientela y arreglar los metodos clone para que funcionen con
+//clientela. El id de Chip debe ir con valores alfanumericos, hay que controlar que 
+//sean alfanumericos.
