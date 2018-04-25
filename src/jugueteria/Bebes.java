@@ -16,8 +16,8 @@ public class Bebes extends Muñecos implements Cloneable {
         this.contento = true;
     }
 
-    public Bebes(boolean ll, boolean re, boolean oj, boolean bo, boolean su, String i) {
-        super(oj, bo, su, i);
+    public Bebes(boolean oj, boolean bo, boolean su, int h, int s, String i, boolean ll, boolean re) {
+        super(oj, bo, su, h, s, i);
         this.triste = ll;
         this.contento = re;
     }
@@ -65,7 +65,7 @@ public class Bebes extends Muñecos implements Cloneable {
 
     @Override
     public String soyUn() {
-        return "Bebé ";
+        return "Bebe ";
     }
 
     //Metodo toString

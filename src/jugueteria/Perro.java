@@ -11,8 +11,8 @@ public class Perro extends Animales implements Cloneable {
         super();
     }
 
-    public Perro(boolean ti, boolean oj, boolean bo, boolean su, String i) {
-        super(ti, oj, bo, su, i);
+    public Perro(boolean oj, boolean bo, boolean su, int h, int s, String i, boolean ti) {
+        super(oj, bo, su, h, s, i, ti);
     }
 
     //Acciones
@@ -22,7 +22,7 @@ public class Perro extends Animales implements Cloneable {
 
     @Override
     public String soyUn() {
-        return super.soyUn() + " Perro.";
+        return "Perro";
     }
 
     //Metodo toString

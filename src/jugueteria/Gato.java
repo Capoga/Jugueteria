@@ -11,8 +11,8 @@ public class Gato extends Animales implements Cloneable {
         super();
     }
 
-    public Gato(boolean ti, boolean oj, boolean bo, boolean su, String i) {
-        super(ti, oj, bo, su, i);
+    public Gato(boolean oj, boolean bo, boolean su, int h, int s, String i, boolean ti) {
+        super(oj, bo, su, h, s, i, ti);
     }
 
     //Acciones
@@ -22,7 +22,7 @@ public class Gato extends Animales implements Cloneable {
 
     @Override
     public String soyUn() {
-        return super.soyUn() + " Gato.";
+        return "Gato";
     }
 
     //Metodo toString

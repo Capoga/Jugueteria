@@ -1,22 +1,24 @@
 package jugueteria;
 
+import java.util.Random;
+
 /**
  *
  * @author carme
  */
 public class Chip implements Cloneable {
 
-    private String id;
+    private String id="C";
     private boolean encendido;
 
     //Constructores
     public Chip() {
-        this.setId(id + 1);
+        this.setId();
         this.encendido = false;
     }
 
     public Chip(String i, boolean e) {
-        this.setId(i);
+        this.id = i;
         this.encendido = e;
     }
 
@@ -25,13 +27,24 @@ public class Chip implements Cloneable {
     }
 
     //Metodos set y get
-    private void setId(String i) {
-        //matches comprueba que el string i contiene los caracteres entre corchetes
-        if (i.matches("[a-zA-Z0-9]+")) {
-            this.id = i;
-        } else {
-            System.out.println("Solo caracteres Alfanumericos. ");
-        }
+    private void setId() {
+        //Variables para Generar el ID de Forma Aleatoria
+        Random aleatorio = new Random();
+        String alfa = "ABCDEFGHIJKLMNOPQRSTVWXYZ";
+        int numero;
+        int forma;
+        //Calculo del codigo
+        forma = (int) (aleatorio.nextDouble() * alfa.length() - 1 + 0);
+        //Definimos la cantidad máxima de números aleatorios (99) y sumamos 100 para mantener 3 números cada vez
+        numero = (int) (aleatorio.nextDouble() * 99 + 100);
+
+        this.id = id + alfa.charAt(forma) + numero;
+//        //matches comprueba que el string i contiene los caracteres entre corchetes
+//        if (i.matches("[a-zA-Z0-9]+")) {
+//            this.id = i;
+//        } else {
+//            System.out.println("Solo caracteres Alfanumericos. ");
+//        }
     }
 
     public void setEncendido() {

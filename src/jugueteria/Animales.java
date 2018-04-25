@@ -14,8 +14,8 @@ public class Animales extends Muñecos implements Cloneable {
         this.tipo = true;
     }
 
-    public Animales(boolean ti, boolean oj, boolean bo, boolean su, String i) {
-        super(oj, bo, su, i);
+    public Animales(boolean oj, boolean bo, boolean su, int h, int s, String i, boolean ti) {
+        super(oj, bo, su, h, s, i);
         this.tipo = ti;
     }
 
@@ -32,9 +32,9 @@ public class Animales extends Muñecos implements Cloneable {
     public String soyUn() {
         String aux;
         if (!tipo) {
-            aux = "salvaje.";
+            aux = "salvaje";
         } else {
-            aux = "doméstico.";
+            aux = "domestico";
         }
         return "Animal " + aux;
     }

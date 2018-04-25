@@ -25,7 +25,7 @@ public class Muñecos /*extends Chip*/ implements Cloneable {
         this.sediento = 0;
     }
 
-    public Muñecos(boolean oj, boolean bo, boolean su, String i) {
+    public Muñecos(boolean oj, boolean bo, boolean su, int h, int s, String i) {
         //super(e);
         c = new Chip(i, false);
         this.ojosAbiertos = oj;
